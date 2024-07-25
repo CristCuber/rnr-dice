@@ -1,72 +1,139 @@
-/* Body styling */
+/* General body styles */
 body {
-  background-color: #121212; /* Dark background color for the whole page */
-  color: #e0e0e0; /* Light text color for contrast */
+  background-color: #121212; /* Default dark background */
+  color: #ffffff; /* Default text color for dark mode */
   margin: 0;
-  font-family: Arial, sans-serif; /* Optional: for better font appearance */
+  font-family: Arial, sans-serif;
+  position: relative; /* Required for positioning email section */
 }
 
-/* General app styling */
+/* Light mode styles */
+body.light-mode {
+  background-color: #f0f0f0; /* Light background for light mode */
+  color: #000000; /* Dark text color for light mode */
+}
+
+/* App container */
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-/* Styling for dice results container */
-.dice-results {
-  text-align: center;
-  margin: 20px auto;
-}
-
-/* Container for each line of re-roll results */
-.dice-re-roll-line {
-  display: flex;
-  flex-direction: column; /* Stack label above dice row */
-  align-items: center; /* Center items horizontally */
-  margin: 20px 0;
-}
-
-/* Label for each roll */
-.roll-label {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Container for dice to display horizontally */
-.dice-row {
-  display: flex;
-  justify-content: center; /* Center dice horizontally */
-  flex-wrap: wrap; /* Wrap dice if they exceed the width */
-}
-
-/* Styling for each dice wrapper */
-.dice-wrapper {
-  margin: 0 5px; /* Space between dice */
-}
-
-/* Dice image styling */
-.dice-image {
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-}
-
-/* Button styling */
+/* Button styles */
 button {
-  background-color: #6200ee; /* Dark purple background */
-  color: #ffffff; /* White text color */
   border: none;
-  border-radius: 4px; /* Rounded corners */
-  padding: 10px 20px;
+  border-radius: 4px;
+  padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
-  margin: 10px;
+  color: #ffffff; /* White text color for readability */
+  margin: 5px;
+}
+
+/* Default button styles */
+button {
+  background-color: #EF1C2B; /* Default purple background */
 }
 
 /* Button hover effect */
 button:hover {
-  background-color: #3700b3; /* Darker purple on hover */
+  opacity: 0.8;
 }
 
-/* Re-roll button specific styling */
+/* Button for re-rolls */
 .re-roll-button {
+  background-color: #03571d; /* Teal background for re-roll button */
+}
+
+.re-roll-button:hover {
+  background-color: #02AA20; /* Darker teal on hover */
+}
+
+/* Dice set selector styling */
+.dice-set-selector {
+  margin: 20px;
+}
+
+.dice-set-button {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.white {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text for contrast */
+}
+
+.black {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text for contrast */
+}
+
+.green {
+  background-color: #4caf50; /* Green background */
+}
+
+.blue {
+  background-color: #2196f3; /* Blue background */
+}
+
+.red {
+  background-color: #f44336; /* Red background */
+}
+
+.yellow {
+  background-color: #ffeb3b; /* Yellow background */
+  color: #000000; /* Black text for contrast */
+}
+
+/* Active dice set button styling */
+.dice-set-button.active {
+  border: 2px solid #000000; /* Black border for active button */
+}
+
+/* Dice results styling */
+.dice-results {
   margin-top: 20px;
+}
+
+.dice-re-roll-line {
+  margin-top: 10px;
+}
+
+.roll-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dice-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Space between dice */
+}
+
+.dice-wrapper {
+  display: inline-block;
+  margin: 5px;
+}
+
+.dice-image {
+  width: 50px;
+  height: 50px;
+}
+
+/* Email section styling */
+.contact-info {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 14px;
+}
+
+.contact-info a {
+  color: #007bff; /* Link color */
+  text-decoration: underline; /* Underline the link */
+}
+
+.contact-info a:hover {
+  color: #0056b3; /* Darker blue on hover */
 }
