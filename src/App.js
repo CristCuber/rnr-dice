@@ -34,7 +34,7 @@ const App = () => {
     // Set indices of dice that need re-rolling
     const indicesToReRoll = rolls.map((value, index) => (value === 'R' ? index : -1)).filter(index => index !== -1);
     setReRollIndices(indicesToReRoll);
-    setReRollResults([rolls]); // Initial roll result
+    setReRollResults([{ label: 'Initial Roll', results: rolls }]); // Store initial roll result with label
   };
 
   // Function to re-roll all dice that need re-rolling
@@ -43,9 +43,9 @@ const App = () => {
     let additionalPoints = 0;
     const newReRollIndices = [];
     const newReRollResults = [...reRollResults];
+    const reRollResultsLine = [];
 
-    // Roll dice that need re-rolling
-    const reRollResultsLine = new Array(diceCount).fill('');
+    // Roll dice that need re-rolling and store results for this line
     reRollIndices.forEach(index => {
       const newValue = rollSingleDice();
       newDiceValues[index] = newValue;
@@ -55,6 +55,7 @@ const App = () => {
       } else if (newValue === '1') {
         additionalPoints += 1;
       }
+      reRollResultsLine[index] = newValue;
     });
 
     // Update total points
@@ -62,8 +63,11 @@ const App = () => {
     setDiceValues(newDiceValues);
     setReRollIndices(newReRollIndices);
 
-    // Update re-roll results
-    newReRollResults.push(newDiceValues);
+    // Update re-roll results with only re-rolled dice
+    newReRollResults.push({
+      label: `Re-roll ${newReRollResults.length}`,
+      results: reRollResultsLine.filter(value => value !== undefined)
+    });
     setReRollResults(newReRollResults);
   };
 
@@ -89,39 +93,25 @@ const App = () => {
         />
       </div>
       <button onClick={rollDice}>Roll Dice</button>
-      {diceValues.length > 0 && (
+      {reRollResults.length > 0 && (
         <div className="dice-results">
-          <h2>Dice Results:</h2>
-          <div className="dice-container">
-            {diceValues.map((value, index) => (
-              <div key={index} className="dice-wrapper">
-                <img
-                  src={getDiceImage(value)}
-                  alt={`Dice ${index + 1} - ${value}`}
-                  className="dice-image"
-                />
+          <h2>Roll Results:</h2>
+          {reRollResults.map((rollResult, rollIndex) => (
+            <div key={rollIndex} className="dice-re-roll-line">
+              <div className="roll-label">{rollResult.label}</div>
+              <div className="dice-row">
+                {rollResult.results.map((value, index) => (
+                  <div key={index} className="dice-wrapper">
+                    <img
+                      src={getDiceImage(value)}
+                      alt={`Dice ${index + 1} - ${value}`}
+                      className="dice-image"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          {reRollResults.length > 1 && (
-            <div>
-              <h3>Re-roll Results:</h3>
-              {reRollResults.slice(1).map((rolls, rollIndex) => (
-                <div key={rollIndex} className="dice-re-roll-line">
-                  {rolls.map((value, index) => (
-                    reRollIndices.includes(index) && (
-                      <img
-                        key={index}
-                        src={getDiceImage(value)}
-                        alt={`Re-roll Dice ${index + 1} - ${value}`}
-                        className="dice-image"
-                      />
-                    )
-                  ))}
-                </div>
-              ))}
             </div>
-          )}
+          ))}
           {reRollIndices.length > 0 && (
             <button onClick={reRollDice} className="re-roll-button">
               Re-roll

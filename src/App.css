@@ -17,24 +17,30 @@ body {
   margin: 20px auto;
 }
 
-/* Container for dice images */
-.dice-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px; /* Space between dice images */
-}
-
 /* Container for each line of re-roll results */
 .dice-re-roll-line {
   display: flex;
-  justify-content: center; /* Center the dice in the line */
-  margin: 10px 0;
+  flex-direction: column; /* Stack label above dice row */
+  align-items: center; /* Center items horizontally */
+  margin: 20px 0;
+}
+
+/* Label for each roll */
+.roll-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Container for dice to display horizontally */
+.dice-row {
+  display: flex;
+  justify-content: center; /* Center dice horizontally */
+  flex-wrap: wrap; /* Wrap dice if they exceed the width */
 }
 
 /* Styling for each dice wrapper */
 .dice-wrapper {
-  margin: 0 5px;
+  margin: 0 5px; /* Space between dice */
 }
 
 /* Dice image styling */
