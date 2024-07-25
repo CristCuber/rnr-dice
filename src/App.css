@@ -4,7 +4,9 @@ body {
   color: #ffffff; /* Default text color for dark mode */
   margin: 0;
   font-family: Arial, sans-serif;
-  position: relative; /* Required for positioning email section */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Light mode styles */
@@ -17,6 +19,7 @@ body.light-mode {
 .App {
   text-align: center;
   padding: 20px;
+  flex: 1;
 }
 
 /* Button styles */
@@ -32,7 +35,7 @@ button {
 
 /* Default button styles */
 button {
-  background-color: #EF1C2B; /* Default purple background */
+  background-color: #dd2121; /* Default purple background */
 }
 
 /* Button hover effect */
@@ -42,11 +45,11 @@ button:hover {
 
 /* Button for re-rolls */
 .re-roll-button {
-  background-color: #03571d; /* Teal background for re-roll button */
+  background-color: #007900; /* Teal background for re-roll button */
 }
 
 .re-roll-button:hover {
-  background-color: #02AA20; /* Darker teal on hover */
+  background-color: #02d645; /* Darker teal on hover */
 }
 
 /* Dice set selector styling */
@@ -60,35 +63,49 @@ button:hover {
 }
 
 .white {
-  background-color: #ffffff; /* White background */
-  color: #000000; /* Black text for contrast */
+  background-color: #ffffff; /* White background for white dice set */
+  color: #000000; /* Black text for readability */
 }
 
 .black {
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text for contrast */
+  background-color: #000000; /* Black background for black dice set */
+  color: #ffffff; /* White text for readability */
 }
 
 .green {
-  background-color: #4caf50; /* Green background */
+  background-color: #4caf50; /* Green background for green dice set */
+  color: #ffffff; /* White text for readability */
 }
 
 .blue {
-  background-color: #2196f3; /* Blue background */
+  background-color: #2196f3; /* Blue background for blue dice set */
+  color: #ffffff; /* White text for readability */
 }
 
 .red {
-  background-color: #f44336; /* Red background */
+  background-color: #f44336; /* Red background for red dice set */
+  color: #ffffff; /* White text for readability */
 }
 
 .yellow {
-  background-color: #ffeb3b; /* Yellow background */
-  color: #000000; /* Black text for contrast */
+  background-color: #ffeb3b; /* Yellow background for yellow dice set */
+  color: #000000; /* Black text for readability */
 }
 
 /* Active dice set button styling */
 .dice-set-button.active {
   border: 2px solid #000000; /* Black border for active button */
+}
+
+/* Input slider styling */
+.slider {
+  width: 300px;
+  margin: 10px;
+}
+
+.slider-value {
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 /* Dice results styling */
@@ -108,6 +125,7 @@ button:hover {
 .dice-row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Ensure responsiveness */
   gap: 5px; /* Space between dice */
 }
 
@@ -121,12 +139,11 @@ button:hover {
   height: 50px;
 }
 
-/* Email section styling */
+/* Contact info styling */
 .contact-info {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 14px;
+  position: relative;
+  margin-top: auto;
+  padding: 10px;
 }
 
 .contact-info a {

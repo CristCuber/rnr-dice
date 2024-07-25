@@ -16,34 +16,34 @@ const App = () => {
 
   const diceImages = {
     white: {
-      '': '/dice-images/white/dice-empty-w.png',
-      '1': '/dice-images/white/dice-1-w.png',
-      'R': '/dice-images/white/dice-R-w.png'
+      '': './rnr-dice/dice-images/white/dice-empty-w.png',
+      '1': './rnr-dice/dice-images/white/dice-1-w.png',
+      'R': './rnr-dice/dice-images/white/dice-R-w.png'
     },
     black: {
-      '': '/dice-images/black/dice-empty-b.png',
-      '1': '/dice-images/black/dice-1-b.png',
-      'R': '/dice-images/black/dice-R-b.png'
+      '': './rnr-dice/dice-images/black/dice-empty-b.png',
+      '1': './rnr-dice/dice-images/black/dice-1-b.png',
+      'R': './rnr-dice/dice-images/black/dice-R-b.png'
     },
     green: {
-      '': '/dice-images/green/dice-empty-g.png',
-      '1': '/dice-images/green/dice-1-g.png',
-      'R': '/dice-images/green/dice-R-g.png'
+      '': './rnr-dice/dice-images/green/dice-empty-g.png',
+      '1': './rnr-dice/dice-images/green/dice-1-g.png',
+      'R': './rnr-dice/dice-images/green/dice-R-g.png'
     },
     blue: {
-      '': '/dice-images/blue/dice-empty-bl.png',
-      '1': '/dice-images/blue/dice-1-bl.png',
-      'R': '/dice-images/blue/dice-R-bl.png'
+      '': './rnr-dice/dice-images/blue/dice-empty-bl.png',
+      '1': './rnr-dice/dice-images/blue/dice-1-bl.png',
+      'R': './rnr-dice/dice-images/blue/dice-R-bl.png'
     },
     red: {
-      '': '/dice-images/red/dice-empty-r.png',
-      '1': '/dice-images/red/dice-1-r.png',
-      'R': '/dice-images/red/dice-R-r.png'
+      '': './rnr-dice/dice-images/red/dice-empty-r.png',
+      '1': './rnr-dice/dice-images/red/dice-1-r.png',
+      'R': './rnr-dice/dice-images/red/dice-R-r.png'
     },
     yellow: {
-      '': '/dice-images/yellow/dice-empty-y.png',
-      '1': '/dice-images/yellow/dice-1-y.png',
-      'R': '/dice-images/yellow/dice-R-y.png'
+      '': './rnr-dice/dice-images/yellow/dice-empty-y.png',
+      '1': './rnr-dice/dice-images/yellow/dice-1-y.png',
+      'R': './rnr-dice/dice-images/yellow/dice-R-y.png'
     }
   };
 
@@ -118,10 +118,7 @@ const App = () => {
       <button onClick={toggleTheme} className="theme-toggle-button">
         {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       </button>
-      <div className="contact-info">
-        If you found any issues, please contact <a href="mailto:cristtanai@gmail.com">cristtanai@gmail.com</a>
-      </div>
-      <h1>Role & Roll Dice Roller</h1>
+      <h1>RnR Dice Roller</h1> {/* Updated header text */}
       <div className="dice-set-selector">
         <h2>Select Dice Set:</h2>
         {Object.keys(diceImages).map((set) => (
@@ -138,32 +135,46 @@ const App = () => {
         <label htmlFor="diceCount">Number of Dice (1-24): </label>
         <input
           id="diceCount"
-          type="number"
+          type="range"
           min="1"
           max="24"
           value={diceCount}
           onChange={handleDiceCountChange}
+          className="slider"
         />
+        <span className="slider-value">{diceCount}</span>
       </div>
       <button onClick={rollDice}>Roll Dice</button>
-      {reRollIndices.length > 0 && (
-        <button onClick={reRollDice} className="re-roll-button">Re-roll</button>
-      )}
-      <div className="dice-results">
-        {reRollResults.map((line, index) => (
-          <div key={index} className="dice-re-roll-line">
-            <div className="roll-label">{line.label}</div>
-            <div className="dice-row">
-              {line.results.map((value, i) => (
-                <div key={i} className="dice-wrapper">
-                  <img src={getDiceImage(value)} alt={value} className="dice-image" />
-                </div>
-              ))}
+      {reRollResults.length > 0 && (
+        <div className="dice-results">
+          <h2>Roll Results:</h2>
+          {reRollResults.map((rollResult, rollIndex) => (
+            <div key={rollIndex} className="dice-re-roll-line">
+              <div className="roll-label">{rollResult.label}</div>
+              <div className="dice-row">
+                {rollResult.results.map((value, index) => (
+                  <div key={index} className="dice-wrapper">
+                    <img
+                      src={getDiceImage(value)}
+                      alt={`Dice ${index + 1} - ${value}`}
+                      className="dice-image"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+          {reRollIndices.length > 0 && (
+            <button onClick={reRollDice} className="re-roll-button">
+              Re-roll
+            </button>
+          )}
+          <h3>Total Points: {totalPoints}</h3>
+        </div>
+      )}
+      <div className="contact-info">
+        If you found any issues, please contact <a href="mailto:cristtanai@gmail.com">cristtanai@gmail.com</a>
       </div>
-      <div className="total-points">Total Points: {totalPoints}</div>
     </div>
   );
 };
