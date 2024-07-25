@@ -16,34 +16,34 @@ const App = () => {
 
   const diceImages = {
     white: {
-      '': './rnr-dice/dice-images/white/dice-empty-w.png',
-      '1': './rnr-dice/dice-images/white/dice-1-w.png',
-      'R': './rnr-dice/dice-images/white/dice-R-w.png'
+      '': '/rnr-dice/dice-images/white/dice-empty-w.png',
+      '1': '/rnr-dice/dice-images/white/dice-1-w.png',
+      'R': '/rnr-dice/dice-images/white/dice-R-w.png'
     },
     black: {
-      '': './rnr-dice/dice-images/black/dice-empty-b.png',
-      '1': './rnr-dice/dice-images/black/dice-1-b.png',
-      'R': './rnr-dice/dice-images/black/dice-R-b.png'
+      '': '/rnr-dice/dice-images/black/dice-empty-b.png',
+      '1': '/rnr-dice/dice-images/black/dice-1-b.png',
+      'R': '/rnr-dice/dice-images/black/dice-R-b.png'
     },
     green: {
-      '': './rnr-dice/dice-images/green/dice-empty-g.png',
-      '1': './rnr-dice/dice-images/green/dice-1-g.png',
-      'R': './rnr-dice/dice-images/green/dice-R-g.png'
+      '': '/rnr-dice/dice-images/green/dice-empty-g.png',
+      '1': '/rnr-dice/dice-images/green/dice-1-g.png',
+      'R': '/rnr-dice/dice-images/green/dice-R-g.png'
     },
     blue: {
-      '': './rnr-dice/dice-images/blue/dice-empty-bl.png',
-      '1': './rnr-dice/dice-images/blue/dice-1-bl.png',
-      'R': './rnr-dice/dice-images/blue/dice-R-bl.png'
+      '': '/rnr-dice/dice-images/blue/dice-empty-bl.png',
+      '1': '/rnr-dice/dice-images/blue/dice-1-bl.png',
+      'R': '/rnr-dice/dice-images/blue/dice-R-bl.png'
     },
     red: {
-      '': './rnr-dice/dice-images/red/dice-empty-r.png',
-      '1': './rnr-dice/dice-images/red/dice-1-r.png',
-      'R': './rnr-dice/dice-images/red/dice-R-r.png'
+      '': '/rnr-dice/dice-images/red/dice-empty-r.png',
+      '1': '/rnr-dice/dice-images/red/dice-1-r.png',
+      'R': '/rnr-dice/dice-images/red/dice-R-r.png'
     },
     yellow: {
-      '': './rnr-dice/dice-images/yellow/dice-empty-y.png',
-      '1': './rnr-dice/dice-images/yellow/dice-1-y.png',
-      'R': './rnr-dice/dice-images/yellow/dice-R-y.png'
+      '': '/rnr-dice/dice-images/yellow/dice-empty-y.png',
+      '1': '/rnr-dice/dice-images/yellow/dice-1-y.png',
+      'R': '/rnr-dice/dice-images/yellow/dice-R-y.png'
     }
   };
 
