@@ -1,38 +1,66 @@
+/* Body styling */
+body {
+  background-color: #121212; /* Dark background color for the whole page */
+  color: #e0e0e0; /* Light text color for contrast */
+  margin: 0;
+  font-family: Arial, sans-serif; /* Optional: for better font appearance */
+}
+
+/* General app styling */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Styling for dice results container */
+.dice-results {
+  text-align: center;
+  margin: 20px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Container for dice images */
+.dice-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px; /* Space between dice images */
 }
 
-.App-link {
-  color: #61dafb;
+/* Container for each line of re-roll results */
+.dice-re-roll-line {
+  display: flex;
+  justify-content: center; /* Center the dice in the line */
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styling for each dice wrapper */
+.dice-wrapper {
+  margin: 0 5px;
+}
+
+/* Dice image styling */
+.dice-image {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}
+
+/* Button styling */
+button {
+  background-color: #6200ee; /* Dark purple background */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
+}
+
+/* Re-roll button specific styling */
+.re-roll-button {
+  margin-top: 20px;
 }
