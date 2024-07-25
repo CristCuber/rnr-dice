@@ -120,7 +120,7 @@ const App = () => {
       </button>
       <h1>RnR Dice Roller</h1> {/* Updated header text */}
       <div className="dice-set-selector">
-        <h2>Select Dice Set:</h2>
+        <h2>Select Dice Color:</h2>
         {Object.keys(diceImages).map((set) => (
           <button
             key={set}
